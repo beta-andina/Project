@@ -33,6 +33,24 @@ class Cliente(models.Model):
 	def __str__(self):
 		return'{} {}'.format(self.nombre, self.apellido)
 
+class Cliente_imagen(models.Model):
+
+	TIPO_IMAGEN = (
+			('DNI','DNI'),
+			('IMPUESTO','IMPUESTO'),
+			('BONO','BONO'),
+			('MOVIMIENTOS_CBU','MOVIMIENTOS_CBU'),
+			('OTROS','OTROS'),
+		
+	)
+
+	idcliente = models.ForeignKey(Cliente,null = True, blank = True, on_delete=models.CASCADE) #Uno a muchos
+	created_at = models.DateTimeField(auto_now_add = True)
+	tipo = models.CharField(max_length=50, choices=TIPO_IMAGEN, default='BONO')
+	imagen = models.ImageField(upload_to='images')
+
+
+
 
 class Cuenta_Corriente(models.Model): #cuenta corriente de clientes
 	idcliente = models.OneToOneField(Cliente,null = True, blank = True, on_delete=models.CASCADE) #Uno a uno

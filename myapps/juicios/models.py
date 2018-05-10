@@ -66,3 +66,5 @@ class Juicio_Tarea(models.Model):
 	def __str__(self):
 		return'{} {}'.format(self.auto, self.juzgado)
 
+
+

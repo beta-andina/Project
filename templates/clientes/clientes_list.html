@@ -1,0 +1,58 @@
+{% extends 'base/base2.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>#</td>
+			<td>Nombre</td>
+			<td>Apellido</td>
+			<td>documento</td>
+			<td>cuil</td>
+			<td>Opciones</td>
+		
+		</tr>
+		
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for cliente in object_list %}
+		<tr>
+			<td>{{ cliente.id }}</td>
+			<td>{{ cliente.nombre }}</td>
+			<td>{{ cliente.apellido }}</td>
+			<td>{{ cliente.documento }}</td>
+			<td>{{ cliente.cuil }}</td>
+
+			<td>
+
+				<a class="btn btn-primary" href="{% url 'clientes:clientes_editar' cliente.id %}">Editar</a>
+				<a class="btn btn-danger" href="{% url 'clientes:clientes_eliminar' cliente.id %}">Eliminar</a>
+
+			</td>
+			
+		</tr>
+		{% endfor %}
+		
+		{% else %}
+		<h1>No hay registros de clientes</h1>
+		{% endif %}
+	</tbody>
+</table> 
+
+<ul class="pager">
+	<li>
+		{% if page_obj.has_previous %}
+		<a href="?page={{ page_obj.previous_page_number }}">PREVIOUS</a>
+		{% endif %}
+	</li>
+	<li>
+		{% if page_obj.has_next %}
+		<a href="?page={{ page_obj.next_page_number }}">NEXT</a>
+		{% endif %}
+	</li>
+</ul>
+
+
+{% endblock%}

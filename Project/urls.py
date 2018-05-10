@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.views.debug import default_urlconf
-from django.urls import path, re_path
+from django.urls import path, re_path, include
+
 
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
     re_path(r'^$', default_urlconf),
+    re_path(r'^usuario/', include('myapps.usuario.urls')),
+
     #url(r'^clientes/', include('myapps.clientes.urls', namespace="clientes")),
 ]

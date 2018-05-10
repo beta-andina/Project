@@ -1,0 +1,65 @@
+{% extends 'base/base2.html' %}
+
+{% block content %}
+
+<html>
+<head>
+	<title>datos</title>
+</head>
+<body>
+	<h1>MOVIMIENTOS</h1>
+
+	<form method="POST">
+		
+		{% csrf_token %}
+
+			<select id="id_tipo" name="tipo_movimiento">
+				<option value="justificacion">JUSTIFICACION</option>
+				<option value="honorarios">HONORARIOS</option>
+			</select>
+			<select name="tipo_cliente">
+				<option value="1">CON CLIENTE</option>
+				<option value="2">SIN CLIENTE</option>
+			</select>
+			<select name="juzgado">
+				<option value="1">PAZ 1</option>
+				<option value="2">PAZ 2</option>
+				<option value="3">PAZ 3</option>
+				<option value="4">PAZ 4</option>
+				<option value="4">PAZ 5</option>
+				<option value="6">PAZ 6</option>
+				<option value="7">PAZ 7</option>
+				<option value="8">PAZ 8</option>
+				<option value="9">PAZ LAS HERAS</option>
+				<option value="10">PAZ VILLA NUEVA</option>
+				<option value="11">PAZ LUJAN</option>
+			</select>
+
+			<input type="text" name="autos" required>
+			<input type="text" name="detalle" required>
+			<input type="number" name="honorarios" required>
+			<input type="number" name="movilidad" required>
+			<input type="submit" value="Enviar">
+
+	</form>
+
+	<h2>{{ autos }}</h2>
+	<h3>{{ detalle }}</h3>
+	<h3>{{ movilidad }}</h3>
+	<h3>{{ honorarios }}</h3>
+
+<script>
+
+function msg() {
+	alert("CAROLINA HERRERA");
+}
+
+
+</script>
+
+</body>
+</html>
+
+
+
+{% endblock %}

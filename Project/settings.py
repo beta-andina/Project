@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'myapps.creditos',
     'myapps.juicios',
     'myapps.configuracion',
+    'myapps.usuario',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +147,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/Project/static/'
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, '/Project/static/'),)
+
+#LOGIN_REDIRECT_URL = reverse_lazy('gestor:listado')
+#LOGOUT_REDIRECT_URL = reverse_lazy('login')
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'maxi.alaniz@gmail.com'
+EMAIL_HOST_PASSWORD = 'nirvana66'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

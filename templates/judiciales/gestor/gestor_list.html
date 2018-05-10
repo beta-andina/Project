@@ -1,0 +1,38 @@
+{% extends 'base/base2.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>GESTOR</td>
+			<td>SALDO POR JUSTIFICAR</td>
+			<td>HONORARIO A PAGAR</td>
+			
+		
+		
+		</tr>
+		
+	</thead>
+	<tbody>
+		{% if gestores %}
+		{% for gestor in gestores %}
+		<tr>
+
+			<td>{{ gestor.iduser }}</td>
+			<td>{{ gestor.saldo_sin_justificar }}</td>
+			<td>{{ gestor.saldo_a_pagar }}</td>
+			
+		
+
+		</tr>
+		{% endfor %}
+		
+		{% else %}
+		<h1>No hay gestores activos</h1>
+		{% endif %}
+	</tbody>
+</table> 
+
+</ul>
+{% endblock%}
